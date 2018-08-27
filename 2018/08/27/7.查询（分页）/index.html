@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分页查询1、说明​    Mysql分页采用 LIMIT 关键字 2、语法格式 格式 123SELECT * FROM table  LIMIT [offset,] rows SELECT * FROM table  LIMIT rows OFFSET offset  说明  第一个参数指定第一个返回记录行的偏移量 第二个参数指定返回记录行的最大数目 如果只给定一个参数：它表示返回最大的记录行数目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/7.查询（分页）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分页查询1、说明​    Mysql分页采用 LIMIT 关键字 2、语法格式 格式 123SELECT * FROM table  LIMIT [offset,] rows SELECT * FROM table  LIMIT rows OFFSET offset  说明  第一个参数指定第一个返回记录行的偏移量 第二个参数指定返回记录行的最大数目 如果只给定一个参数：它表示返回最大的记录行数目">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-24T09:17:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="分页查询1、说明​    Mysql分页采用 LIMIT 关键字 2、语法格式 格式 123SELECT * FROM table  LIMIT [offset,] rows SELECT * FROM table  LIMIT rows OFFSET offset  说明  第一个参数指定第一个返回记录行的偏移量 第二个参数指定返回记录行的最大数目 如果只给定一个参数：它表示返回最大的记录行数目">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-7.查询（分页）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/7.查询（分页）/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.416Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h1><h3 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h3><p>​    Mysql分页采用 <strong>LIMIT</strong> 关键字</p>
+<h3 id="2、语法格式"><a href="#2、语法格式" class="headerlink" title="2、语法格式"></a>2、语法格式</h3><ol>
+<li><p>格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table  LIMIT [offset,] rows </span><br><span class="line"></span><br><span class="line">SELECT * FROM table  LIMIT rows OFFSET offset</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<ul>
+<li>第一个参数指定第一个返回记录行的偏移量</li>
+<li>第二个参数指定返回记录行的最大数目</li>
+<li>如果只给定一个参数：它表示返回最大的记录行数目</li>
+<li>第二个参数为 -1 表示检索从某一个偏移量到记录集的结束所有的记录行</li>
+<li>初始记录行的偏移量是 0(而不是 1)</li>
+</ul>
+</li>
+</ol>
+<h3 id="3、示例代码"><a href="#3、示例代码" class="headerlink" title="3、示例代码"></a>3、示例代码</h3><ol>
+<li><p>查询6-10条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table LIMIT 5,5; </span><br><span class="line">-- 检索记录行 6-10 条数据</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp LIMIT 5,-1;</span><br><span class="line">-- 检索记录行 6-最后一条.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询前 5 条记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp LIMIT 5</span><br><span class="line">-- LIMIT n 等价于 LIMIT 0,n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回4行，9表示从表的第10行开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp LIMIT 4 OFFSET 9</span><br><span class="line">-- 等价于 select * from Emp limit 9,4</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/7.查询（分页）/" data-id="cjlc40dc1000ak8tqg03pm36b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/27/8.查询（多表）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/27/6.查询（函数）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/27/13.约束/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/12.数据类型/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/11.创建表/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/10.增删改/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/9.查询（子查询）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

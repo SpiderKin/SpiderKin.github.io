@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="子查询1、定义 指嵌入在其他sql语句中的select语句 通俗的来讲指的是在一个查询之中嵌入若干个小的查询 子查询可以出现在查询语句的(9i中除ORDER BY语句)任意位置上，但是实际开发运用中，子查询出现在WHERE和FROM子句之中较多。  2 、核心作用 子查询的出现主要是为了解决多表查询之中的性能问题。  3 、分类 嵌套查询(标准子查询) 1指子查询可以脱离主查询独立执行  关联查询">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/9.查询（子查询）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子查询1、定义 指嵌入在其他sql语句中的select语句 通俗的来讲指的是在一个查询之中嵌入若干个小的查询 子查询可以出现在查询语句的(9i中除ORDER BY语句)任意位置上，但是实际开发运用中，子查询出现在WHERE和FROM子句之中较多。  2 、核心作用 子查询的出现主要是为了解决多表查询之中的性能问题。  3 、分类 嵌套查询(标准子查询) 1指子查询可以脱离主查询独立执行  关联查询">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-24T09:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="子查询1、定义 指嵌入在其他sql语句中的select语句 通俗的来讲指的是在一个查询之中嵌入若干个小的查询 子查询可以出现在查询语句的(9i中除ORDER BY语句)任意位置上，但是实际开发运用中，子查询出现在WHERE和FROM子句之中较多。  2 、核心作用 子查询的出现主要是为了解决多表查询之中的性能问题。  3 、分类 嵌套查询(标准子查询) 1指子查询可以脱离主查询独立执行  关联查询">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.查询（子查询）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/9.查询（子查询）/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.426Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><ol>
+<li>指<strong>嵌入在其他sql语句中的select语句</strong></li>
+<li>通俗的来讲指的是<strong>在一个查询之中嵌入若干个小的查询</strong></li>
+<li>子查询可以出现在查询语句的(9i中除ORDER BY语句)任意位置上，但是实际开发运用中，子查询出现在WHERE和FROM子句之中较多。</li>
+</ol>
+<h3 id="2-、核心作用"><a href="#2-、核心作用" class="headerlink" title="2 、核心作用"></a>2 、核心作用</h3><blockquote>
+<p>子查询的出现主要是为了<strong>解决多表查询之中的性能问题</strong>。</p>
+</blockquote>
+<h3 id="3-、分类"><a href="#3-、分类" class="headerlink" title="3 、分类"></a>3 、分类</h3><ol>
+<li><p>嵌套查询(标准子查询)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指子查询可以脱离主查询独立执行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关联查询(相关子查询)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关联子查询就是指子查询与主查询之间有条件关联,关联子查询会引用外部查询中的一列或多列。这种子查询之所以被称为关联子查询，是因为子查询的确与外部查询有关。当问题的答案需要依赖于外部查询中包含的每一行中的值时，通常就需要使用关联子查询。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>笔记：关联子查询（相关子查询）：子查询不可以脱离主查询独立执行</p>
+</blockquote>
+<h3 id="4-、FROM中使用子查询"><a href="#4-、FROM中使用子查询" class="headerlink" title="4 、FROM中使用子查询"></a>4 、FROM中使用子查询</h3><h4 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h4><pre><code>如果在 FROM 子句里面出现的子查询，其返回的结果一般都是多行多列数据(相当于表)。
+</code></pre><h4 id="2、示例代码"><a href="#2、示例代码" class="headerlink" title="2、示例代码"></a>2、示例代码</h4><ol>
+<li><p><strong>范例：</strong>查询出每个部门的编号、名称、位置、部门人数、平均工资</p>
+<p>1、方式一</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,<span class="keyword">COUNT</span>(e.empno),<span class="keyword">AVG</span>(e.sal)</span><br><span class="line"><span class="keyword">FROM</span> emp e,dept d</span><br><span class="line"><span class="keyword">WHERE</span> e.deptno=d.deptno</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> d.deptno,d.dname,d.loc;</span><br></pre></td></tr></table></figure>
+<p>2、方式二:通过子查询完成，所有的统计查询只能在GROUP BY中出现，所以在子查询之中负责统计数据，而在外部的查询之中，负责将统计数据和dept表数据相统一。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.deptno,d.dname,d.loc,temp.count,temp.avg</span><br><span class="line">FROM dept d,(SELECT deptno dno,COUNT(empno) count,AVG(sal) avg</span><br><span class="line">            FROM emp</span><br><span class="line">            GROUP BY deptno) temp</span><br><span class="line">WHERE d.deptno=temp.dno;</span><br></pre></td></tr></table></figure>
+<p>3、说明</p>
+<p>方式一的数据量，</p>
+<p>​ 积的数量：emp 的 14 条 * dept 的 4 条 = 56 条数据；</p>
+<p>方式二的数据量</p>
+<ul>
+<li>子查询中统计的记录是14条记录，最终统计的显示结果是3条记录；</li>
+<li>dept表之中一共有4条记录；</li>
+<li>如果现在产生笛卡尔积的话只有12条记录，再加上子查询中雇员的14条记录，一共才26条记录；</li>
+</ul>
+<p>通过如上的分析，可以发现，使用子查询的确要比使用多表查询更加节省性能，所以在开发之中子查询出现是最多的，而且在给出一个不成文的规定：大部分情况下，如果最终的查询结果之中需要出现SELECT子句，但是又不能直接使用统计函数的时候，就在子查询中统计信息，即：有复杂统计的地方大部分都需要子查询。</p>
+</li>
+<li><p>查询比本部门平均工资高的员工的姓名,部门编号,工资及平均工资</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> e.ename, e.sal, e.deptno, temp.salavg</span><br><span class="line"><span class="keyword">FROM</span> emp e, (<span class="keyword">SELECT</span> department_id, <span class="keyword">AVG</span>(sal) salavg</span><br><span class="line">            <span class="keyword">FROM</span> employees</span><br><span class="line">            <span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id) temp</span><br><span class="line">            <span class="keyword">WHERE</span> e.deptno = temp.deptno</span><br><span class="line"><span class="keyword">AND</span> e.sal &gt; temp.salavg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询出部门名称，部门的员工数，部门的平均工资，部门的最低收入雇员的姓名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.dname,temp.cou,temp.avg,e.ename</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> deptno,<span class="keyword">count</span>(<span class="number">1</span>) cou,<span class="keyword">round</span>(<span class="keyword">avg</span>(sal)) <span class="keyword">avg</span>,<span class="keyword">min</span>(sal) <span class="keyword">min</span></span><br><span class="line">                 <span class="keyword">FROM</span> emp    </span><br><span class="line">                 <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno</span><br><span class="line">     ) temp,</span><br><span class="line">     dept d,</span><br><span class="line">    emp e</span><br><span class="line"><span class="keyword">WHERE</span> d.deptno=temp.deptno <span class="keyword">AND</span>  e.sal=temp.min;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/9.查询（子查询）/" data-id="cjlc40dca000ck8tq2vaggbx4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/27/10.增删改/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/27/8.查询（多表）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/27/13.约束/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/12.数据类型/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/11.创建表/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/10.增删改/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/9.查询（子查询）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="约束1、定义 约束是强加在表上的规则或条件。确保数据库满足业务规则。保证数据的完整性。 当对表进行DML或DDL操作时，如果此操作会造成表中的数据违反约束条件或规则的话，系统就会拒绝执行这个操作。 约束可以是列一级别的也可以是表级别的。 定义约束时没有给出约束的名字，ORACE系统将为该约束自动生成一个名字，其格式为SYS_Cn，其中n为自然数(强烈建议各位在创建表或增加约束时，给约束定义名称">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/13.约束/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="约束1、定义 约束是强加在表上的规则或条件。确保数据库满足业务规则。保证数据的完整性。 当对表进行DML或DDL操作时，如果此操作会造成表中的数据违反约束条件或规则的话，系统就会拒绝执行这个操作。 约束可以是列一级别的也可以是表级别的。 定义约束时没有给出约束的名字，ORACE系统将为该约束自动生成一个名字，其格式为SYS_Cn，其中n为自然数(强烈建议各位在创建表或增加约束时，给约束定义名称">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-26T13:29:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="约束1、定义 约束是强加在表上的规则或条件。确保数据库满足业务规则。保证数据的完整性。 当对表进行DML或DDL操作时，如果此操作会造成表中的数据违反约束条件或规则的话，系统就会拒绝执行这个操作。 约束可以是列一级别的也可以是表级别的。 定义约束时没有给出约束的名字，ORACE系统将为该约束自动生成一个名字，其格式为SYS_Cn，其中n为自然数(强烈建议各位在创建表或增加约束时，给约束定义名称">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-13.约束" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/13.约束/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.439Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h2 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h2><ol>
+<li>约束是强加在表上的规则或条件。确保数据库满足业务规则。保证数据的完整性。</li>
+<li>当对表进行DML或DDL操作时，如果此操作会造成表中的数据违反约束条件或规则的话，系统就会拒绝执行这个操作。</li>
+<li>约束可以是列一级别的也可以是表级别的。</li>
+<li>定义约束时没有给出约束的名字，ORACE系统将为该约束自动生成一个名字，其格式为SYS_Cn，其中n为自然数(强烈建议各位在创建表或增加约束时，给约束定义名称</li>
+</ol>
+<h2 id="2、作用"><a href="#2、作用" class="headerlink" title="2、作用"></a>2、作用</h2><ol>
+<li>实现一些业务规则，防止无效的垃圾数据进入数据库，维护数据库的完整性(完整性指正确性与一致性)。</li>
+<li>从而使数据库的开发和维护都更加容易</li>
+</ol>
+<h2 id="3、分类"><a href="#3、分类" class="headerlink" title="3、分类"></a>3、分类</h2><ol>
+<li><p>行级约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对一个数据列建立的约束，称为列级约束。列级约束既可以在列定义时声明，也可以在列定义后声明</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>表级约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对多个数据列建立的约束，称为表级约束。表级约束只能在列定义后声明</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、NOT NULL约束和DEFAULT约束不存在表级约束。其余的约束都存在列级约束和表级约束。</span><br><span class="line">2、实际开发过程中，列级约束使用的较多，表级约束很少使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="4、约束类型"><a href="#4、约束类型" class="headerlink" title="4、约束类型"></a>4、约束类型</h2><h3 id="1、说明"><a href="#1、说明" class="headerlink" title="1、说明"></a>1、说明</h3><ol>
+<li>唯一约束</li>
+<li>主键约束</li>
+<li>外键约束</li>
+<li>检查约束</li>
+<li>空值约束</li>
+<li>默认值约束</li>
+</ol>
+<h3 id="2、主键约束-PRIMARY-KEY-Constraint"><a href="#2、主键约束-PRIMARY-KEY-Constraint" class="headerlink" title="2、主键约束(PRIMARY KEY Constraint)"></a>2、主键约束(PRIMARY KEY Constraint)</h3><h4 id="2-1、定义"><a href="#2-1、定义" class="headerlink" title="2.1、定义"></a>2.1、定义</h4><p>​     唯一的标识表中的每一行，不能重复，不能为空。 创建主键或唯一约束后，ORACLE会自动创建一个与约束同名的索引（UNIQUENES为UNIQUE唯一索引）</p>
+<blockquote>
+<p>笔记说明：</p>
+<p>1、一个表必须有一个主键约束（通常情况一般只有一个主键），开发规则</p>
+<p>2、特点：（1）不为空，唯一  （2）默认创建唯一索引</p>
+</blockquote>
+<h4 id="2-2、作用"><a href="#2-2、作用" class="headerlink" title="2.2、作用"></a>2.2、作用</h4><p>​ 实现表中记录的一个唯一性,一个表中一般只有一个主键(建议)</p>
+<h4 id="2-3、主键分类"><a href="#2-3、主键分类" class="headerlink" title="2.3、主键分类"></a>2.3、主键分类</h4><h5 id="1、单一主键（用的最多，涉及一个表）"><a href="#1、单一主键（用的最多，涉及一个表）" class="headerlink" title="1、单一主键（用的最多，涉及一个表）"></a>1、单一主键（用的最多，涉及一个表）</h5><h5 id="2、复合主键-不建议使用"><a href="#2、复合主键-不建议使用" class="headerlink" title="2、复合主键(不建议使用)"></a>2、复合主键(不建议使用)</h5><p>​ 表的主键含有一个以上的字段组成（只涉及一个表）</p>
+<h5 id="3、联合主键-多对多的情况下使用"><a href="#3、联合主键-多对多的情况下使用" class="headerlink" title="3、联合主键(多对多的情况下使用)"></a>3、联合主键(多对多的情况下使用)</h5><p>​ 多个主键联合形成一个主键组合</p>
+<h4 id="2-4、语法格式"><a href="#2-4、语法格式" class="headerlink" title="2.4、语法格式"></a>2.4、语法格式</h4><ol>
+<li><p>格式1</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">  列名 数据类型 [<span class="keyword">constraint</span> 主键名(PK_表名)] primary <span class="keyword">key</span>, </span><br><span class="line">  列名 数据类型,</span><br><span class="line">  列名 数据类型</span><br><span class="line">)</span><br><span class="line"><span class="comment">--不加主键名系统会默认给一个,主键名一般命名为《PK_表名》</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line">(    </span><br><span class="line">    列名 数据类型,</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> [主键名称(PK_表名)] PRIMARY <span class="keyword">KEY</span> (列名, 列名,...,列名n)</span><br><span class="line">);</span><br><span class="line"><span class="comment">--此时若主键含有多个列名则为复合主键，若只有一个列，则是单一主键</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-5、-示例代码"><a href="#2-5、-示例代码" class="headerlink" title="2.5、 示例代码"></a>2.5、 示例代码</h4><ol>
+<li><p>在创建数据的时候在行的后面添加</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">TABLE</span> TB_USER(</span><br><span class="line">  UID <span class="built_in">NUMBER</span>(<span class="number">10</span>) <span class="keyword">CONSTRAINT</span> <span class="string">"PK_TB_USER"</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  USERNAME VARCHAR2(<span class="number">64</span>),</span><br><span class="line">  <span class="keyword">PASSWORD</span> VARCHAR2(<span class="number">32</span>),</span><br><span class="line">  EMAIL   VARCHAR2(<span class="number">32</span>),</span><br><span class="line">  PHONE   <span class="built_in">CHAR</span>(<span class="number">11</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>放在建表语句的后面添加</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">TABLE</span> TB_USER(</span><br><span class="line">    UID <span class="built_in">NUMBER</span>(<span class="number">10</span>),</span><br><span class="line">    USERNAME VARCHAR2(<span class="number">64</span>),</span><br><span class="line">    <span class="keyword">PASSWORD</span> VARCHAR2(<span class="number">32</span>),</span><br><span class="line">    EMAIL   VARCHAR2(<span class="number">32</span>),</span><br><span class="line">    PHONE   <span class="built_in">CHAR</span>(<span class="number">11</span>),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> <span class="string">"PK_TB_USER"</span> PRIMARY <span class="keyword">KEY</span> (UID) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-6、添加方式"><a href="#2-6、添加方式" class="headerlink" title="2.6、添加方式"></a>2.6、添加方式</h4><ol>
+<li>建表时添加，</li>
+<li>建表后添加</li>
+<li>当建立复合主键的时候必须使用表级添加</li>
+</ol>
+<h4 id="2-7、主键约束的限制"><a href="#2-7、主键约束的限制" class="headerlink" title="2.7、主键约束的限制"></a>2.7、主键约束的限制</h4><ol>
+<li>一个表或视图一般只有一个主键</li>
+<li>开发中强烈建议使用NUMBER或VARCHAR2类型</li>
+<li>不能指定一列或组合列既是主键又是唯一键</li>
+<li>主键大小不能超过一个数据块大小</li>
+<li>主键组合键不能超过32列。</li>
+<li>创建一个继承层次结构中的子视图时，你不能指定一个主键。主键可以唯一指定的顶层（根）视图</li>
+</ol>
+<h4 id="2-8、主键自动增长"><a href="#2-8、主键自动增长" class="headerlink" title="2.8、主键自动增长"></a>2.8、主键自动增长</h4><ol>
+<li><p>建表</p>
+</li>
+<li><p>建立序列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE SEQUENCE dept_sequence</span><br><span class="line">increment by 1</span><br><span class="line">start with 1</span><br><span class="line">nomaxvalue</span><br><span class="line">nocycle</span><br><span class="line">nocache;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立触发器（目的是在表插入数据的时候启用序列生成的值）</p>
+</li>
+</ol>
+<h3 id="2、外键约束-FOREIGN-KEY-Constraint"><a href="#2、外键约束-FOREIGN-KEY-Constraint" class="headerlink" title="2、外键约束(FOREIGN KEY Constraint)"></a>2、外键约束(FOREIGN KEY Constraint)</h3><h4 id="2-1-、定义"><a href="#2-1-、定义" class="headerlink" title="2.1 、定义"></a>2.1 、定义</h4><pre><code>1、用来维护从表（Child Table）和主表（Parent Table）之间的引用完整性. 
+</code></pre><p>​    2、外键约束是个有争议性的约束，它一方面能够维护数据库的数据一致性，数据的完整性，防止错误的垃圾数据入库；</p>
+<p>​    3、 另外一方面它会增加表插入、更新等SQL性能的额外开销，不少系统里面通过业务逻辑控制来取消外键约束</p>
+<h4 id="2-2-、语法格式"><a href="#2-2-、语法格式" class="headerlink" title="2.2 、语法格式"></a>2.2 、语法格式</h4><ol>
+<li><p>格式1</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line">(</span><br><span class="line">    列名 数据类型 <span class="keyword">REFERENCES</span> 父表(参照列名) [<span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span>|<span class="keyword">SET</span> <span class="literal">NULL</span>], </span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line"><span class="comment">--参照列名一般是主表的主键</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line">(</span><br><span class="line">    列名 数据类型 ,</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> 约束名称(FK_TABLE_NAME) FOREIGN <span class="keyword">KEY</span>(外键列名)  <span class="keyword">REFERENCES</span> 父表(参照列名) [<span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span>|<span class="keyword">SET</span> <span class="literal">NULL</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment">--外键名一般命名为《FK_表名_参照列名》</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<p>1、ON DELETE SET NULL子句：当主表中的一行数据被删除时，Oracle系统会自动地将所有从表中依赖于它的数据记录的外键改成空值；</p>
+<p>2、ON DELETE CASCADE：当主表中的一行数据被删除时，Oracle系统会自动地将所有从表中依赖于它的数据记录删除</p>
+</li>
+</ol>
+<h4 id="2-3-、示例代码"><a href="#2-3-、示例代码" class="headerlink" title="2.3 、示例代码"></a>2.3 、示例代码</h4><ol>
+<li><p>在主键字段后添加</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">TABLE</span> TB_ADDRESS(</span><br><span class="line">    ADDRESS <span class="built_in">NUMBER</span>(<span class="number">10</span>),</span><br><span class="line">    USERNAME VARCHAR2(<span class="number">64</span>),</span><br><span class="line">    UID <span class="built_in">NUMBER</span>(<span class="number">12</span>)  <span class="keyword">CONSTRAINT</span> FK_TBUSER_UID <span class="keyword">REFERENCES</span> TB_USER(UID) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建表后添加</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">TABLE</span> TB_ADDRESS(</span><br><span class="line">    ADDRESS <span class="built_in">NUMBER</span>(<span class="number">10</span>),</span><br><span class="line">    USERNAME VARCHAR2(<span class="number">64</span>),</span><br><span class="line">    UID <span class="built_in">NUMBER</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> <span class="string">"FK_TBUSER_UID"</span> FOREIGN <span class="keyword">KEY</span>(UID) <span class="keyword">REFERENCES</span> TB_USER(UID) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">SET</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-4-、特点"><a href="#2-4-、特点" class="headerlink" title="2.4 、特点"></a>2.4 、特点</h4><blockquote>
+<p>参照主键中存在的值并且可以插入重复的记录，而且可以插入重复的空值。</p>
+</blockquote>
+<h4 id="2-5、注意事项"><a href="#2-5、注意事项" class="headerlink" title="2.5、注意事项"></a>2.5、注意事项</h4><ol>
+<li>外键字段不能为LOB, LONG, LONG RAW, VARRAY, NESTED TABLE, BFILE, REF, TIMESTAMP WITH TIME ZONE, or user-defined type类型，主键可以包含数据类型为TIMESTAMP WITH LOCAL TIME ZONE的字段</li>
+<li>引用唯一或主键约束，必须是父表中已经定义的</li>
+<li>外键的组合列不能超过32列</li>
+<li>字表和父表必须在同一个数据库。分布式数据库中，外键不能跨节点，但触发器可以你不能在CREATE TABLE语句中包含AS子查询子句定义一个外键约束。相反，你必须创建一个没有约束的表，然后添加ALTER TABLE语句</li>
+<li>参照列必须是主键或者是unique列</li>
+</ol>
+<h4 id="2-6、对DML与DDL的影响"><a href="#2-6、对DML与DDL的影响" class="headerlink" title="2.6、对DML与DDL的影响"></a>2.6、对DML与DDL的影响</h4><ol>
+<li><p>INSERT：只有操作是在子表或从表这一端时才会产生违反引用完整性约束的问题，父表则不然。</p>
+</li>
+<li><p>DELETE：只有操作是在父表或主表这一端时才会产生违反引用完整性约束的问题，子表则不然。</p>
+</li>
+<li><p>UPDATE：子表父表直接操作都会违反引用完整性约束。两种解决方法：</p>
+<p>1、先更新子表的引用列为空，再更新父表的主键的列的值，然后把子表的引用列更新成新的父表的值；</p>
+<p>2、使用ON DELETE SET NULL，先更新父表，然后将子表外键为空的记录更新为新的值。</p>
+</li>
+<li><p>DDL语句：DROP TABLE与TRUNCATE TABLE，操作父表，违反引用完整性约束，子表则不然</p>
+<blockquote>
+<p>笔记说明</p>
+<p>1、一般两个表如果有关联关系，就会把主表（一）的主键作为从表（多）的外键</p>
+<p>2、创建从表之前必须保证主表存在，否则先创建主表。</p>
+<p>3、删除表的时候先删除从表才能删除主表</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="3、唯一约束-Unique-Constraint"><a href="#3、唯一约束-Unique-Constraint" class="headerlink" title="3、唯一约束(Unique Constraint)"></a>3、唯一约束(Unique Constraint)</h3><h4 id="3-1、定义"><a href="#3-1、定义" class="headerlink" title="3.1、定义"></a>3.1、定义</h4><pre><code>1、唯一性约束指的是表中一个或者多个字段联合起来能够唯一标识一条记录的约束,
+</code></pre><p>​    2、联合自段中可以包含空值且联合字段不能超过32个</p>
+<h4 id="3-2、作用"><a href="#3-2、作用" class="headerlink" title="3.2、作用"></a>3.2、作用</h4><blockquote>
+<p>因为表中只有一个主键，但是其他的列需要唯一要求</p>
+</blockquote>
+<h4 id="3-3、特点"><a href="#3-3、特点" class="headerlink" title="3.3、特点"></a>3.3、特点</h4><pre><code>1、当唯一约束指的是一个字段时，可以插入null，但是只能插入一次；
+</code></pre><p>​    2、当唯一约束指的是联合字段时，可以插入null，且字段可以插入重复的空值（参照下面笔记说明）</p>
+<blockquote>
+<p>笔记说明：</p>
+<p>当唯一约束指的是联合字段时，只要其中一个列不同则代表这一组列是唯一的，即可以让其他列相同，但至少一个列不同</p>
+</blockquote>
+<h4 id="3-4、语法格式"><a href="#3-4、语法格式" class="headerlink" title="3.4、语法格式"></a>3.4、语法格式</h4><ol>
+<li><p>格式1</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line">(</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> [唯一约束名(UK_表名_列名)] <span class="keyword">UNIQUE</span> (列名)</span><br><span class="line">  <span class="comment">--CONSTRAINT [唯一约束名(UK_表名_列名)] UNIQUE (列名, 列名,...)</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3-5、示例代码"><a href="#3-5、示例代码" class="headerlink" title="3.5、示例代码"></a>3.5、示例代码</h4><ol>
+<li><p>单列添加唯一性约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_UNIQUE</span><br><span class="line">(</span><br><span class="line">  U_ID <span class="built_in">NUMBER</span>(<span class="number">10</span>),</span><br><span class="line">  USERNAME  VARCHAR2(<span class="number">32</span>),</span><br><span class="line">  PHONE VARCHAR2(<span class="number">11</span>)</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> UK_TBUNIQUE_UID  <span class="keyword">UNIQUE</span> (USERNAME)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多列添加唯一约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_UNIQUE</span><br><span class="line">(</span><br><span class="line">    U_ID <span class="built_in">NUMBER</span>(<span class="number">10</span>),</span><br><span class="line">    USERNAME  VARCHAR2(<span class="number">32</span>),</span><br><span class="line">    PHONE VARCHAR2(<span class="number">11</span>)</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> UK_TBUNIQUE_UID  <span class="keyword">UNIQUE</span> (USERNAME,PHONE)</span><br><span class="line">);</span><br><span class="line"><span class="comment">--说明：(USERNAME,PHONE)</span></span><br><span class="line"><span class="comment">--		('xiaoming','110')</span></span><br><span class="line"><span class="comment">--		('xiaoming','120')</span></span><br><span class="line"><span class="comment">--这两个组合值其中有一个列的值不相同，所以这个联合字段的两组值都是唯一的。只有两个列的值都相同时，这两个组合值才是相同的，不符合唯一约束。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3-6、与主键的区别"><a href="#3-6、与主键的区别" class="headerlink" title="3.6、与主键的区别"></a>3.6、与主键的区别</h4><ol>
+<li>唯一性约束所在的列允许空值，但是主键约束所在的列不允许空值。</li>
+<li>可以把唯一性约束放在一个或者多个列上，这些列或列的组合必须有唯一的。但是，唯一性约束所在的列并不是表的主键列。</li>
+<li>唯一性约束强制在指定的列上创建一个唯一性索引。在默认情况下，创建唯一性的非聚簇索引，但是，也可以指定所创建的索引是聚簇索引。</li>
+<li>建立主键的目的是让外键来引用.</li>
+<li>一个表一般最多只有一个主键，但可以有很多唯一键</li>
+</ol>
+<h3 id="4、检查约束-Check-Constraint"><a href="#4、检查约束-Check-Constraint" class="headerlink" title="4、检查约束(Check Constraint)"></a>4、检查约束(Check Constraint)</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>​ 根据用户自己的需求来进行限制</p>
+<h4 id="4-2-语法格式"><a href="#4-2-语法格式" class="headerlink" title="4.2 语法格式"></a>4.2 语法格式</h4><ol>
+<li><p>格式1</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_CHECK</span><br><span class="line">(</span><br><span class="line">    列名 数据类型   [<span class="keyword">CONSTRAINT</span> 检查约束名(CK_表名_列名)] <span class="keyword">CHECK</span> [<span class="keyword">NOT</span> <span class="keyword">FOR</span> <span class="keyword">REPLICATION</span>],</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    ...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_CHECK</span><br><span class="line">(</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    列名 数据类型,</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span> 检查约束名(CK_表名_列名)] <span class="keyword">CHECK</span>(列名) [<span class="keyword">NOT</span> <span class="keyword">FOR</span> <span class="keyword">REPLICATION</span>]</span><br><span class="line">);</span><br><span class="line"><span class="comment">--NOT FOR REPLICATION:指定检查约束(注意在把从其它表中复制的数据插入到表中时不发生作用)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-3-示例代码"><a href="#4-3-示例代码" class="headerlink" title="4.3 示例代码"></a>4.3 示例代码</h4><ol>
+<li><p>在行级别添加</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_CHECK</span><br><span class="line">(</span><br><span class="line">  USERNAME VARCHAR2(<span class="number">32</span>),</span><br><span class="line">  PHONE  VARCHAR2(<span class="number">11</span>) <span class="keyword">CHECK</span>(<span class="keyword">LENGTH</span>(PHONE) =<span class="number">11</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>约束放在表后</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_CHECK1</span><br><span class="line">(</span><br><span class="line">    USERNAME VARCHAR2(<span class="number">32</span>),</span><br><span class="line">    PHONE  VARCHAR2(<span class="number">11</span>),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> CK_TBCHECK_PHONE <span class="keyword">CHECK</span>(<span class="keyword">LENGTH</span>(PHONE)=<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">FOR</span> <span class="keyword">REPLICATION</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="5、空值约束-Not-Null-Constraint"><a href="#5、空值约束-Not-Null-Constraint" class="headerlink" title="5、空值约束(Not Null Constraint)"></a>5、空值约束(Not Null Constraint)</h3><h4 id="5-1、说明"><a href="#5-1、说明" class="headerlink" title="5.1、说明"></a>5.1、说明</h4><ol>
+<li>一种是限制为null(意义不大)，一般是将值限制为Not Null</li>
+<li>NOT NULL只能在列级定义</li>
+</ol>
+<h4 id="5-2、作用："><a href="#5-2、作用：" class="headerlink" title="5.2、作用："></a>5.2、作用：</h4><p>​ 使指定的列必须插入值</p>
+<h4 id="5-3、语法格式"><a href="#5-3、语法格式" class="headerlink" title="5.3、语法格式"></a>5.3、语法格式</h4><ol>
+<li><p>格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line">(</span><br><span class="line">    列名 数据类型 <span class="literal">null</span>/<span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    ...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="5-4、示例代码"><a href="#5-4、示例代码" class="headerlink" title="5.4、示例代码"></a>5.4、示例代码</h4><ol>
+<li><p>不允许为null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE TB_NULL</span><br><span class="line">(</span><br><span class="line">    USER_ID NUMBER(10) PRIMARY KEY,</span><br><span class="line">    USERNAME VARCHAR2(64) NOT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="6、默认约束-Default-Counstraint"><a href="#6、默认约束-Default-Counstraint" class="headerlink" title="6、默认约束(Default Counstraint)"></a>6、默认约束(Default Counstraint)</h3><h4 id="6-1、定义"><a href="#6-1、定义" class="headerlink" title="6.1、定义"></a>6.1、定义</h4><ol>
+<li>当不插入值的时候给默认效果</li>
+<li>用的使modify 来进行修改</li>
+</ol>
+<h4 id="6-2、语法格式"><a href="#6-2、语法格式" class="headerlink" title="6.2、语法格式"></a>6.2、语法格式</h4><ol>
+<li><p>格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEFAULT 默认值</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="6-3、示例代码"><a href="#6-3、示例代码" class="headerlink" title="6.3、示例代码"></a>6.3、示例代码</h4><ol>
+<li><p>给列添加默认值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TB_DEFAULT(</span><br><span class="line">    USER_ID  <span class="built_in">NUMBER</span>(<span class="number">10</span>) PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    USERNAME  VARCHAR2(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    PHONE    VARCHAR2(<span class="number">11</span>) <span class="keyword">CHECK</span>(<span class="keyword">LENGTH</span>(PHONE) =<span class="number">11</span>),</span><br><span class="line">    SEX   <span class="built_in">NUMBER</span>(<span class="number">2</span>)  DEFALUT <span class="number">0</span>,</span><br><span class="line">    CREATE_TIME  <span class="built_in">DATE</span> DEFALUT  <span class="keyword">SYSDATE</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="7-、其他"><a href="#7-、其他" class="headerlink" title="7 、其他"></a>7 、其他</h3><h4 id="7-1、约束名的命名规则"><a href="#7-1、约束名的命名规则" class="headerlink" title="7.1、约束名的命名规则"></a>7.1、约束名的命名规则</h4><ol>
+<li>主键约束: PK_表名</li>
+<li>唯一约束: UK <em>表名 </em>列名</li>
+<li>外键约束: FK<em> 表名</em> 列名</li>
+<li>条件约束 :CK<em> 表名</em>列名</li>
+</ol>
+<h4 id="7-2、注意事项"><a href="#7-2、注意事项" class="headerlink" title="7.2、注意事项"></a>7.2、注意事项</h4><ol>
+<li>NOT NULL约束和DEFAULT约束只能被创建为列级约束</li>
+<li>其他４种则既可以被创建为列级约束，也可以被创建为表级约束</li>
+<li>当一个约束涉及到多列时，只能被创建成表级约束</li>
+<li>可以为其他4种约束起名，而不能给NOT NULL和DEFAULT约束起名</li>
+</ol>
+<h4 id="7-3、约束管理"><a href="#7-3、约束管理" class="headerlink" title="7.3、约束管理"></a>7.3、约束管理</h4><ol>
+<li><p>删除约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名  <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> 列名; </span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名  <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名  <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">CASCADE</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ENABLE</span> <span class="keyword">CONSTRAINT</span> 列名; </span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ENABLE</span> PRIMARY <span class="keyword">KEY</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁用约束</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/13.约束/" data-id="cjlc40dba0004k8tqwfbxa4x0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/27/12.数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/27/13.约束/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/12.数据类型/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/11.创建表/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/10.增删改/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/9.查询（子查询）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

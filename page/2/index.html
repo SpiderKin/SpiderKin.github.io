@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-3.查询（控制列）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/3.查询（控制列）/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.358Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、-案例表"><a href="#一、-案例表" class="headerlink" title="一、 案例表"></a>一、 案例表</h2><h3 id="2-1、部门信息表：dept"><a href="#2-1、部门信息表：dept" class="headerlink" title="2.1、部门信息表：dept"></a>2.1、部门信息表：dept</h3><table>
+<thead>
+<tr>
+<th>列名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEPTNO</td>
+<td>int(2)</td>
+<td>部门编号；最多由2位数字组成</td>
+</tr>
+<tr>
+<td>DNAME</td>
+<td>varchar(14)</td>
+<td>部门名称；最多由14个字节组成</td>
+</tr>
+<tr>
+<td>LOC</td>
+<td>varchar(50)</td>
+<td>部门所在的位置地址；最多由50个字节组成</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2、员工-雇员-信息表：emp-employees"><a href="#2-2、员工-雇员-信息表：emp-employees" class="headerlink" title="2.2、员工(雇员)信息表：emp(employees)"></a>2.2、员工(雇员)信息表：emp(employees)</h3><table>
+<thead>
+<tr>
+<th>列名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMPNO</td>
+<td>int(10)</td>
+<td>员工编号;由4位数字组成</td>
+</tr>
+<tr>
+<td>ENAME</td>
+<td>VARCHAR(15)</td>
+<td>员工姓名</td>
+</tr>
+<tr>
+<td>JOB</td>
+<td>VARCHAR(10)</td>
+<td>员工职位</td>
+</tr>
+<tr>
+<td>MGR</td>
+<td>NUMBER(10)</td>
+<td>员工领导的编号</td>
+</tr>
+<tr>
+<td>HIREDATE</td>
+<td>DATE</td>
+<td>员工雇佣日期；DATA 包含了日期和时间</td>
+</tr>
+<tr>
+<td>SAL</td>
+<td>decimal(7,2)</td>
+<td>基本工资；如：99999.99</td>
+</tr>
+<tr>
+<td>COMM</td>
+<td>decimal(7,2)</td>
+<td>佣金(提成)，一般只有销售才有佣金的概念。</td>
+</tr>
+<tr>
+<td>DEPTNO</td>
+<td>int(2)</td>
+<td>员工所在的部门编号。和 dept表的 DEPTNO对应</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二-、查询-控制列"><a href="#二-、查询-控制列" class="headerlink" title="二 、查询(控制列)"></a>二 、查询(控制列)</h2><h3 id="1、简单查询"><a href="#1、简单查询" class="headerlink" title="1、简单查询"></a>1、简单查询</h3><h4 id="1-1、语法格式"><a href="#1-1、语法格式" class="headerlink" title="1.1、语法格式"></a>1.1、语法格式</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">DISTINCT</span>] * | 列名 [<span class="keyword">AS</span>] [别名] ,列名 [<span class="keyword">AS</span>] [别名] , <span class="number">2</span>、 控制要显示的数据列</span><br><span class="line"><span class="keyword">FROM</span> 表名称 [别名] ;   					  			     1、 确定查询的数据来源</span><br></pre></td></tr></table></figure>
+<h4 id="1-2、参数说明"><a href="#1-2、参数说明" class="headerlink" title="1.2、参数说明"></a>1.2、参数说明</h4><blockquote>
+<p>1、SELECT 关键字 查询数据<br>2、FROM   关键字 后面跟数据来源<br>3、 DISTINCT –表示去掉重复行数据   distinct关键字只能跟在select关键字之后<br>4、<em> –查询选择所有的列，count（</em>）意味着计算所有的行，表示通配符时，表示0个或任意多个字符<br>5、AS –关键字不能用于指定表的别名,可以用来指定列名的别名,指定列的别名的时候可以省略</p>
+</blockquote>
+<h4 id="1-3、示例代码"><a href="#1-3、示例代码" class="headerlink" title="1.3、示例代码"></a>1.3、示例代码</h4><ol>
+<li><p>查询雇员(emp)表的所有数据，即所有行和所有列的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> emp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询每个雇员(emp)的编号(empno)、姓名(ename)、职位(job)、基本工资(sal)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno,ename,job,sal </span><br><span class="line">FROM emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ojx4zwltq.bkt.clouddn.com/17-3-19/53973878-file_1489905470416_17a70.png" alt=""></p>
+</li>
+<li><p>使用别名方式查询(开发中禁止使用中文别名,看到用中文别名的直接拖出打死)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno 编号,ename 姓名,job 职位,sal 薪资 </span><br><span class="line">FROM emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ojx4zwltq.bkt.clouddn.com/17-3-19/72398330-file_1489905740070_14235.png" alt=""></p>
+</li>
+<li><p>去掉重复数据(DISTINCT)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT job </span><br><span class="line">FROM emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ojx4zwltq.bkt.clouddn.com/17-3-19/21758026-file_1489905837327_acfe.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT job </span><br><span class="line">FROM emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ojx4zwltq.bkt.clouddn.com/17-3-19/93556269-file_1489905984399_ac86.png" alt=""></p>
+</li>
+<li><p>表的别名的使用(当多表联查时各表有相同列名时就可以使用别名来特指查询的列)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.empno,e.ename,e.deptno</span><br><span class="line">FROM emp e;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2、简单查询-、-、×、÷"><a href="#2、简单查询-、-、×、÷" class="headerlink" title="2、简单查询(+、-、×、÷)"></a>2、简单查询(+、-、×、÷)</h3><h4 id="2-1、说明"><a href="#2-1、说明" class="headerlink" title="2.1、说明"></a>2.1、说明</h4><ol>
+<li>四则运算可以对<strong>数字类型,日期类型,数字类型的字符串</strong>进行运算</li>
+<li>运算符的优先级跟数学的加，减，乘，除一样</li>
+</ol>
+<h4 id="2-2-、示例代码"><a href="#2-2-、示例代码" class="headerlink" title="2.2 、示例代码"></a>2.2 、示例代码</h4><ol>
+<li><p>查询每个雇员的编号、姓名、基本年薪</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno,ename,sal*12 </span><br><span class="line">FROM emp ;</span><br></pre></td></tr></table></figure>
+<p><img src="http://opzv089nq.bkt.clouddn.com/17-7-30/23441362.jpg" alt=""></p>
+</li>
+<li><p>查询每个雇员的编号、姓名、职位、年薪，而且每位雇员，每个月有 300 元的饭食补助、180元的交通补助，年底的时候可以领到 14个月的基本工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno 编号,ename 姓名 ,job 职位,(sal*14 + (300+180)*12) 年薪 </span><br><span class="line">FROM emp</span><br></pre></td></tr></table></figure>
+<p><img src="http://opzv089nq.bkt.clouddn.com/17-7-30/66782512.jpg" alt="">                     </p>
+</li>
+</ol>
+<p>### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/3.查询（控制列）/" data-id="cjlc40dbd0006k8tqkbejkxgs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2.基础概念" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/2.基础概念/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.355Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="一、什么DB和DBMS-了解"><a href="#一、什么DB和DBMS-了解" class="headerlink" title="一、什么DB和DBMS(了解)"></a>一、什么DB和DBMS(了解)</h2><h3 id="1、DB数据库"><a href="#1、DB数据库" class="headerlink" title="1、DB数据库"></a>1、DB数据库</h3><h4 id="1-1、定义"><a href="#1-1、定义" class="headerlink" title="1.1、定义"></a>1.1、定义</h4><blockquote>
+<p>全称Data Base,是长期存储在计算机内，有组织的，统一管理的相关数据的集合</p>
+</blockquote>
+<h3 id="2、DBMS-数据库管理系统"><a href="#2、DBMS-数据库管理系统" class="headerlink" title="2、DBMS(数据库管理系统)"></a>2、DBMS(数据库管理系统)</h3><h4 id="2-1、定义"><a href="#2-1、定义" class="headerlink" title="2.1、定义"></a>2.1、定义</h4><blockquote>
+<p>全称DataBase Management System数据库管理系统,是指数据库系统中对数据进行管理的软件系统，它是数据库系统的核心组成部分。可以通过DBMS对DB进行定义、查询、更新及各种控制数据库管理系统（DBMS）是与用户，其他应用程序和数据库本身来捕获和分析数据进行交互的计算机软件应用程序</p>
+</blockquote>
+<h2 id="二、主流数据库分类-掌握"><a href="#二、主流数据库分类-掌握" class="headerlink" title="二、主流数据库分类(掌握)"></a>二、主流数据库分类(掌握)</h2><h3 id="1、关系型数据库"><a href="#1、关系型数据库" class="headerlink" title="1、关系型数据库"></a>1、关系型数据库</h3><h4 id="1-1、定义-1"><a href="#1-1、定义-1" class="headerlink" title="1.1、定义"></a>1.1、定义</h4><blockquote>
+<p>是一种建立在关系模型（数学模型）上的数据库</p>
+<p>关系型数据库以行和列的形式存储数据，行和列组成二维表，表与表之间的数据记录有关系,很多二维表又组成一个数据库,</p>
+</blockquote>
+<h4 id="1-2、关系模型"><a href="#1-2、关系模型" class="headerlink" title="1.2、关系模型"></a>1.2、关系模型</h4><ol>
+<li><p>什么是关系模型</p>
+<p>所谓的关系模型只的是建立在关系上的模型，由三个方面</p>
+</li>
+<li><p>组成</p>
+<ul>
+<li>数据结构：数据存储的形式，二维表（行和列）；</li>
+<li>操作指令集合：所有的 SQL 语句；</li>
+<li>完整性约束：表内数据约束（字段与字段）和表与表之间的约束（外键）</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-3、分类"><a href="#1-3、分类" class="headerlink" title="1.3、分类"></a>1.3、分类</h4><ol>
+<li><p>大型数据库</p>
+<p>IBM DB2、Oracle、Sybase</p>
+</li>
+<li><p>中型数据库</p>
+<p>MySQL、SQL Server、PostgreSQL</p>
+</li>
+<li><p>小型数据库</p>
+<p>Access、SQLite3等</p>
+</li>
+</ol>
+<h3 id="2、非关系型-NOSQL"><a href="#2、非关系型-NOSQL" class="headerlink" title="2、非关系型(NOSQL)"></a>2、非关系型(NOSQL)</h3><h4 id="2-1、概要"><a href="#2-1、概要" class="headerlink" title="2.1、概要"></a>2.1、概要</h4><blockquote>
+<p>随着web2.0的快速发展，非关系型、分布式数据存储得到了快速的发展，它们不保证关系数据的ACID特性。NoSQL概念在2009年被提了出来。NoSQL最常见的解释是“non-relational”，“Not Only SQL”也被很多人接受。（“NoSQL”一词最早于1998年被用于一个轻量级的关系数据库的名字）NoSQL被我们用得最多的当数key-value存储，当然还有其他的文档型的、列存储、图型数据库、xml数据库等。在NoSQL概念提出之前，这些数据库就被用于各种系统当中，但是却很少用于web互联网应用。</p>
+</blockquote>
+<h4 id="2-2、分类"><a href="#2-2、分类" class="headerlink" title="2.2、分类"></a>2.2、分类</h4><table>
+<thead>
+<tr>
+<th><strong>分类</strong></th>
+<th>举例</th>
+<th>典型应用场景</th>
+<th>数据模型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>键值（key-value）</td>
+<td>Redis Memcached</td>
+<td>内容缓存，主要用于处理大量数据的高访问负载，也用于一些日志系统等等。</td>
+<td>Key 指向 Value 的键值对，通常用hash table来实现</td>
+<td>查找速度快</td>
+<td>数据无结构化，通常只被当作字符串或者二进制数据</td>
+</tr>
+<tr>
+<td>列存储数据库</td>
+<td>HBase</td>
+<td>分布式的文件系统</td>
+<td>以列簇式存储，将同一列数据存在一起</td>
+<td>查找速度快，可扩展性强，更容易进行分布式扩展</td>
+<td>功能相对局限</td>
+</tr>
+<tr>
+<td>文档型数据库</td>
+<td>MongoDB</td>
+<td>Web应用（与Key-Value类似，Value是结构化的，不同的是数据库能够了解Value的内容）</td>
+<td>Key-Value对应的键值对，Value为结构化数据</td>
+<td>数据结构要求不严格，表结构可变，不需要像关系型数据库一样需要预先定义表结构</td>
+<td>查询性能不高，而且缺乏统一的查询语法。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-3、应用场景"><a href="#2-3、应用场景" class="headerlink" title="2.3、应用场景"></a>2.3、应用场景</h4><ol>
+<li>对数据库高并发读写的需求 </li>
+<li>对海量数据的高效率存储和访问的需求 </li>
+<li>对数据库的高可扩展性和高可用性的需求</li>
+</ol>
+<h4 id="2-4、对比"><a href="#2-4、对比" class="headerlink" title="2.4、对比"></a>2.4、对比</h4><h5 id="1、优点："><a href="#1、优点：" class="headerlink" title="1、优点："></a>1、优点：</h5><ol>
+<li>成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。</li>
+<li>查询速度：nosql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。</li>
+<li>存储数据的格式：nosql的存储格式是key,value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。</li>
+<li>扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。</li>
+</ol>
+<h5 id="2、缺点："><a href="#2、缺点：" class="headerlink" title="2、缺点："></a>2、缺点：</h5><ol>
+<li>维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库10几年的技术同日而语。</li>
+<li>不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。</li>
+<li>不提供关系型数据库对事物的处理(或者比较弱)。</li>
+</ol>
+<h2 id="三、SQL"><a href="#三、SQL" class="headerlink" title="三、SQL"></a>三、SQL</h2><h3 id="1、什么是SQL"><a href="#1、什么是SQL" class="headerlink" title="1、什么是SQL"></a>1、什么是SQL</h3><blockquote>
+<p>全名是结构化查询语言（Structured Query Language）,是一种ANSI(美国国家标准化组织)的标准计算机语言 SQL 语句是一种特殊的编程语言,是面向数据库的语言 使我们有能力访问数据库</p>
+</blockquote>
+<h3 id="2、为什么会有SQL"><a href="#2、为什么会有SQL" class="headerlink" title="2、为什么会有SQL?"></a>2、为什么会有SQL?</h3><blockquote>
+<p>在70年代末的时候，世界上就已经存在<strong><em>七八十</em></strong>种数据库，而每一种数据库都有属于自己的一套数据库操作命令。这样就显得让开发者从A数据库过度到B数据库增加了难度，甚至要重新学习一套新的操作命令。</p>
+<p>就在那个时候，IBM公司开发出了SQL数据库操作命令标准，而Oracle数据库是世界最早支持SQL标准的数据库。从那之后，大多数公司都支持SQL语法，大部分都是在各自原有的操作命令的基础上，再兼容一套SQL语法。直到现在，基本上所有的关系型数据库都支持SQL语法</p>
+</blockquote>
+<h3 id="3、SQL能做什么"><a href="#3、SQL能做什么" class="headerlink" title="3、SQL能做什么"></a>3、SQL能做什么</h3><ol>
+<li>面向数据库执行的查询,可以从数据库取回数据库 </li>
+<li>可以向数据库中插入新的记录</li>
+<li>可以更新数据库中的记录 </li>
+<li>可以从数据库中删除记录</li>
+<li>可以创建新的数据库 </li>
+<li>可以在数据库中创建新表</li>
+<li>可在数据库中创建视图等</li>
+</ol>
+<h3 id="4、分类"><a href="#4、分类" class="headerlink" title="4、分类"></a>4、分类</h3><h4 id="2-1、DDL-重点"><a href="#2-1、DDL-重点" class="headerlink" title="2.1、DDL(重点)"></a>2.1、DDL(重点)</h4><ol>
+<li><p>定义</p>
+<p>全称(Data Definition Language 数据定义语句)： 用于定义数据的结构，比如 创建、修改或者删除数据库对象<br>注意:DDL只是对我们的表的属性(列名)进行操作,不会对具体的数据进行操作(也就是行)</p>
+</li>
+<li><p>主要操作</p>
+<p><strong>CREATE：</strong>可以创建数据库和数据库的一些对象</p>
+<p><strong>DROP：</strong>可以删除数据表、索引、触发程序、条件约束以及数据表的权限等</p>
+<p><strong>ALTER：</strong>修改数据表定义及属性</p>
+</li>
+<li><p>操作对象</p>
+<p>表</p>
+</li>
+</ol>
+<h4 id="2-2、DML-重点"><a href="#2-2、DML-重点" class="headerlink" title="2.2、DML(重点)"></a>2.2、DML(重点)</h4><ol>
+<li><p>定义</p>
+<p>全称(Data Manipulation  Language 数据操控语句)主要是用于操作数据库对象中包含的数据</p>
+</li>
+<li><p>主要操作</p>
+<p><strong>select：</strong>查询数据库数据</p>
+<p><strong>insert：</strong>向数据库表中插入一条记录</p>
+<p><strong>update：</strong>用于修改已经存在的表中记录的内容</p>
+<p><strong>delete：</strong>用于删除表中的一条或多条记录,也可以删除数据库表中的所有记录(危险操作,开发中慎用,一般都是假删除，假删除是指在表中添加一个字段（列）作为标识，然后查询时多写一个条件来去除该记录)</p>
+</li>
+<li><p>操作对象</p>
+<p>行数据(记录)</p>
+</li>
+</ol>
+<h4 id="2-4、TCL"><a href="#2-4、TCL" class="headerlink" title="2.4、TCL"></a>2.4、TCL</h4><blockquote>
+<p>全称（Transaction Control Language）翻译成中文 事务控制语言,事务是访问并可能更新数据库各种数据项的一个程序执行单元，负责对事物的操作主要操作命令有BEGIN，COMMIT，ROLLBACK </p>
+</blockquote>
+<h4 id="2-3、DCL"><a href="#2-3、DCL" class="headerlink" title="2.3、DCL"></a>2.3、DCL</h4><blockquote>
+<p>Data Control Language，数据控制语言，主要是负责（用户）权限管理，代表指令为<code>grant</code>和<code>revoke</code>等。</p>
+</blockquote>
+<h2 id="四、基本命令"><a href="#四、基本命令" class="headerlink" title="四、基本命令"></a>四、基本命令</h2><h3 id="1、通过命令行连接数据库"><a href="#1、通过命令行连接数据库" class="headerlink" title="1、通过命令行连接数据库"></a>1、通过命令行连接数据库</h3><ol>
+<li><p>语法格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h[IP地址] -P[端口] -u用户名 -p密码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地连接数据库</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment"># 远程连接数据库</span></span><br><span class="line">mysql <span class="number">-47.106</span><span class="number">.89</span><span class="number">.6</span> -P3306 -uroot -proot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2、常用的操作数据库的命令"><a href="#2、常用的操作数据库的命令" class="headerlink" title="2、常用的操作数据库的命令"></a>2、常用的操作数据库的命令</h3><ol>
+<li><p>查看所有数据库 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># create database 数据库名 character set 字符集</span><br><span class="line"># 创建数据库jx 并指定数据库中数据的编码</span><br><span class="line">create database jx character set utf8;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># use 数据库名</span><br><span class="line">use jx;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示数据库中所有表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看表结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc 表名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="3、图形工具"><a href="#3、图形工具" class="headerlink" title="3、图形工具"></a>3、图形工具</h3><ol>
+<li>MySql 官方 MySQL Workbench </li>
+<li>Navicat(收费,推荐企业开发中常用)</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/2.基础概念/" data-id="cjlc40dbb0005k8tq8rv8ga6l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-1.安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/1.安装/" class="article-date">
+  <time datetime="2018-08-27T09:56:37.350Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL-数据库的安装及配置"><a href="#MySQL-数据库的安装及配置" class="headerlink" title="MySQL 数据库的安装及配置"></a>MySQL 数据库的安装及配置</h1><h3 id="第一步-双击打开此msi文件，进入如下界面"><a href="#第一步-双击打开此msi文件，进入如下界面" class="headerlink" title="第一步 双击打开此msi文件，进入如下界面"></a>第一步 双击打开此msi文件，进入如下界面</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/36128401.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<p>1：安装所有 MySQL 数据库需要的产品；</p>
+<p>2：仅仅使用 MySQL 数据库的服务器；</p>
+<p>3：仅仅使用 MySQL 数据库的客户端；</p>
+<p>4：安装所有包含 MySQL 数据库的产品；</p>
+<p>5：手动选择需要安装的 MySQL 数据库的产品。</p>
+</li>
+</ol>
+<h3 id="第二步-进入安装提示界面，直接点击Execute"><a href="#第二步-进入安装提示界面，直接点击Execute" class="headerlink" title="第二步 进入安装提示界面，直接点击Execute"></a>第二步 进入安装提示界面，直接点击<code>Execute</code></h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/36616766.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第三步-等待下载完成"><a href="#第三步-等待下载完成" class="headerlink" title="第三步 等待下载完成"></a>第三步 等待下载完成</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/38356016.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<ul>
+<li>1：表示当前的状态；</li>
+<li>2：表示当前的升级进度；</li>
+<li>3：显示或隐藏升级信息；</li>
+</ul>
+</li>
+</ol>
+<h3 id="第四步-MySQL-数据库升级成功完成后，点击Next"><a href="#第四步-MySQL-数据库升级成功完成后，点击Next" class="headerlink" title="第四步 MySQL 数据库升级成功完成后，点击Next"></a>第四步 MySQL 数据库升级成功完成后，点击<code>Next</code></h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/34784439.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第五步-提示进入了产品配置的阶段，直接点击Next即可"><a href="#第五步-提示进入了产品配置的阶段，直接点击Next即可" class="headerlink" title="第五步 提示进入了产品配置的阶段，直接点击Next即可"></a>第五步 提示进入了产品配置的阶段，直接点击<code>Next</code>即可</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/3968692.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第六步-配置mysql-默认配置即可-，点击Next"><a href="#第六步-配置mysql-默认配置即可-，点击Next" class="headerlink" title="第六步 配置mysql(默认配置即可)，点击Next"></a>第六步 配置mysql(默认配置即可)，点击Next</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/53144353.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<ul>
+<li>1：配置服务器类型；</li>
+<li>2：选择<code>TCP/IP</code>协议；</li>
+<li>3：选择端口号为<code>3306</code>.</li>
+</ul>
+</li>
+</ol>
+<p>第七步 设置账号和角色</p>
+<ol>
+<li><p>示例代码</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/51381843.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<p><code>root</code>账号的密码（必须记住，登录 MySQL 数据库时需要验证）即可，密码至少四位，设置完成后，点击<code>Next</code></p>
+</li>
+</ol>
+<h3 id="第七步-配置服务-选择默认即可-选择next"><a href="#第七步-配置服务-选择默认即可-选择next" class="headerlink" title="第七步 配置服务 选择默认即可,选择next"></a>第七步 配置服务 选择默认即可,选择next</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/49941330.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<ul>
+<li>1：由于咱们使用的是<code>mysql-5.7.17</code>版本，因此默认的服务器名称为<code>MySQL57</code>；</li>
+<li>2：默认选择<code>Standard System Account</code>即可</li>
+</ul>
+</li>
+</ol>
+<h3 id="第八步-配置插件和扩展应用-直接next"><a href="#第八步-配置插件和扩展应用-直接next" class="headerlink" title="第八步 配置插件和扩展应用,直接next"></a>第八步 配置插件和扩展应用,直接next</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/24028410.jpg" alt=""></p>
+</li>
+<li><p>说明</p>
+<p>如果电脑弹出提示框，显示“危险”等提示信息，不用管它，这只是安全软件遇到修改配置的时候自动报警而已，直接点击“同意”即可</p>
+</li>
+</ol>
+<h3 id="第九步-确认需要应用的服务器配置-点击Execute"><a href="#第九步-确认需要应用的服务器配置-点击Execute" class="headerlink" title="第九步 确认需要应用的服务器配置 点击Execute"></a>第九步 确认需要应用的服务器配置 点击<code>Execute</code></h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/62118601.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第十步-服务器配置完成，点击Finish"><a href="#第十步-服务器配置完成，点击Finish" class="headerlink" title="第十步 服务器配置完成，点击Finish"></a>第十步 服务器配置完成，点击<code>Finish</code></h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/81971622.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第十一步-显示配置完成，直接点击Next"><a href="#第十一步-显示配置完成，直接点击Next" class="headerlink" title="第十一步  显示配置完成，直接点击Next"></a>第十一步  显示配置完成，直接点击<code>Next</code></h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/50448562.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="第十二步-安装完成，直接点击Finish即可"><a href="#第十二步-安装完成，直接点击Finish即可" class="headerlink" title="第十二步 安装完成，直接点击Finish即可"></a>第十二步 安装完成，直接点击<code>Finish</code>即可</h3><ol>
+<li><p>示例图</p>
+<p><img src="http://zhangwei-imgs.oss-cn-beijing.aliyuncs.com/18-8-24/26831081.jpg" alt=""></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/1.安装/" data-id="cjlc40db50001k8tqjxgm7n4m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/25/hello-world/" class="article-date">
+  <time datetime="2018-08-25T06:08:39.789Z" itemprop="datePublished">2018-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/25/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/25/hello-world/" data-id="cjlc40dcq000dk8tqj6vr4fj0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/27/13.约束/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/12.数据类型/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/11.创建表/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/10.增删改/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/27/9.查询（子查询）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
